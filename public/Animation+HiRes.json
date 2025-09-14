@@ -1,0 +1,110 @@
+{
+  "nodes": {
+    "3": {
+      "inputs": {
+        "seed": 1,
+        "steps": 20,
+        "cfg": 7,
+        "sampler_name": "dpmpp_2m",
+        "scheduler": "normal",
+        "denoise": 1,
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "6",
+          0
+        ],
+        "negative": [
+          "7",
+          0
+        ],
+        "latent_image": [
+          "5",
+          0
+        ]
+      },
+      "type": "KSampler",
+      "widgets_values": [
+        1,
+        20,
+        7,
+        "dpmpp_2m",
+        "normal",
+        1
+      ]
+    },
+    "4": {
+      "inputs": {
+        "ckpt_name": "sd_xl_base_1.0.safetensors"
+      },
+      "type": "CheckpointLoaderSimple",
+      "widgets_values": [
+        "sd_xl_base_1.0.safetensors"
+      ]
+    },
+    "5": {
+      "inputs": {
+        "width": 512,
+        "height": 512,
+        "batch_size": 1
+      },
+      "type": "EmptyLatentImage",
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    "6": {
+      "inputs": {
+        "text": "a vibrant coral reef teeming with life, photorealistic, 4k",
+        "clip": [
+          "4",
+          1
+        ]
+      },
+      "type": "CLIPTextEncode",
+      "widgets_values": [
+        "a vibrant coral reef teeming with life, photorealistic, 4k"
+      ]
+    },
+    "7": {
+      "inputs": {
+        "text": "blurry, cartoonish, low quality",
+        "clip": [
+          "4",
+          1
+        ]
+      },
+      "type": "CLIPTextEncode",
+      "widgets_values": [
+        "blurry, cartoonish, low quality"
+      ]
+    },
+    "8": {
+      "inputs": {
+        "samples": [
+          "3",
+          0
+        ],
+        "vae": [
+          "4",
+          2
+        ]
+      },
+      "type": "VAEDecode"
+    },
+    "9": {
+      "inputs": {
+        "filename_prefix": "ComfyUI",
+        "images": [
+          "8",
+          0
+        ]
+      },
+      "type": "SaveImage"
+    }
+  }
+}
